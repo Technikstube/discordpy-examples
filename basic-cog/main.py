@@ -9,8 +9,8 @@ import os
 
 from discord.ext import commands
 
-# If needed, change this to discord.Intents.all()
-# IMPORTANT: This example bot needs the "Message Content" and "Server Members" intent
+# If needed, change this to discord.Intents.all() and delete the two lines under it
+# !IMPORTANT: This example bot needs the "Message Content" and "Server Members" intent
 intents = discord.Intents.default()
 intents.message_content=True
 intents.members=True
@@ -36,7 +36,7 @@ async def on_ready():
         if file.endswith(".py"):
             
             # if it ends with ".py", load it
-            # - "[:-3]" cuts off the ".py" (3 letters/symbols) at the end of the file name
+            # FYI: "[:-3]" cuts off the ".py" (3 letters/symbols) at the end of the file name
             await bot.load_extension(f"cogs.{file[:-3]}")
             print(f"Loaded Extension: {file[:-3]}")
     

@@ -14,7 +14,7 @@ class Ping(commands.Cog):
         self.bot = bot
     
     # A basic on_member_join Listener
-    # Note that in cogs, all event listeners must be decorated with @commands.Cog.listener()
+    # ?Note: in cogs, all event listeners must be decorated with @commands.Cog.listener()
     @commands.Cog.listener()
     async def on_member_join(self, member: discord.Member):
         
