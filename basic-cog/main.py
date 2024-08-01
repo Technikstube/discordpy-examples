@@ -26,9 +26,6 @@ bot = commands.Bot(
 @bot.event
 async def on_ready():
     
-    # Syncronize the slash commands to discord
-    await bot.tree.sync()
-    
     # go through the cogs folder
     for file in os.listdir("./basic-cog/cogs/"):
         
@@ -40,6 +37,9 @@ async def on_ready():
             await bot.load_extension(f"cogs.{file[:-3]}")
             print(f"Loaded Extension: {file[:-3]}")
     
+    # Syncronize the slash commands to discord
+    await bot.tree.sync()
+
     print("Ready!")
 
 # Runs the bot with the set TOKEN
