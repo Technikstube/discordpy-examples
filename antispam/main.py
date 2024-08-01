@@ -54,8 +54,6 @@ async def on_message(message: discord.Message):
 
     antispam_guild_member["count"] += 1
 
-    print(antispam_guild_member["count"] )
-
     if antispam_guild_member["count"] == MAX_MESSAGES:
         del messages[guild_id][member_id]
 
