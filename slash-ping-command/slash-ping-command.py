@@ -7,6 +7,10 @@ Author @SimplexDE
 import discord
 from discord.ext.commands import Bot
 
+# Insert your Bot-Token here
+TOKEN = "bot_token_here"
+
+# If needed, change this to discord.Intents.all() to enable all intents. The ping slash command works with default.
 intents = discord.Intents.default()
 
 bot = Bot(
@@ -22,8 +26,7 @@ async def on_ready():
     
     print("Ready!")
 
-@bot.tree.command(name="ping",
-                              description="Shows the current latency")
+@bot.tree.command(name="ping", description="Shows the current latency")
 async def ping_slash_command(interaction: discord.Interaction):
     """The ping slash command
 
@@ -35,10 +38,9 @@ async def ping_slash_command(interaction: discord.Interaction):
     # Rounding is for readability
     latency = round(bot.latency * 1000)
 
+    # Sends the message as a reply to the command
     await interaction.response.send_message(f"{bot.user.name}'s Ping is: {latency}ms")
     
 
-TOKEN = "bot_token_here"
-
-# Run the bot with the TOKEN set above
+# Run the bot with the set TOKEN
 bot.run(TOKEN)
