@@ -18,14 +18,6 @@ async def on_ready():
     print("Welcomer successfully started!")
     print(f"User: {bot.user} ({bot.user.id})")
 
-
-@bot.event
-async def on_message(message: discord.Message):
-    member = message.author
-
-    if message.content.startswith("!test"):
-        await on_member_join(member)
-
 # This event will be fired if a member joins the server.
 @bot.event
 async def on_member_join(member: discord.Member):
