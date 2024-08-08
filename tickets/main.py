@@ -7,6 +7,7 @@ Author @SimplexDE
 import discord
 import os
 from discord.ext import commands
+from dotenv import get_key
 
 # If needed, change this to discord.Intents.all() and delete the two lines under it
 # !IMPORTANT: This example bot needs the "Message Content" and "Server Members" intent
@@ -14,7 +15,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 intents.members = True
 
-TOKEN = os.environ.get("TOKEN")
+TOKEN = get_key(".env", "TOKEN")
 
 bot = commands.Bot(
     command_prefix="!",
@@ -25,7 +26,7 @@ bot = commands.Bot(
 async def on_ready():
     
     # go through the cogs folder
-    for file in os.listdir("./basic-cog/cogs/"):
+    for file in os.listdir("./tickets/cogs/"):
         
         # check if the file ends with ".py"
         if file.endswith(".py"):
