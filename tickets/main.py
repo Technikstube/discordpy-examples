@@ -27,6 +27,8 @@ class TicketBot(commands.Bot):
         )
 
     async def setup_hook(self):
+        """This makes sure that the Buttons are persistent, even after a bot restart."""
+        
         self.add_view(TicketControlsView())
         self.add_view(TicketOpenView())
         

@@ -2,6 +2,8 @@ import discord
 from discord import ui
 from utility import get_tickets, save_tickets
 
+# Class to add the Close Ticket Button
+
 class TicketControlsView(ui.View):
     def __init__(self):
         super().__init__(timeout=None)
@@ -16,6 +18,11 @@ class TicketControlsView(ui.View):
 
     async def callback(self, interaction: discord.Interaction):
         tickets = get_tickets()
+        
+        if str(interaction.channel.id) not in tickets:
+            await interaction.response.send_message("This is not a ticket.", ephemeral=True)
+            return
+        
         tickets.pop(str(interaction.channel.id))
         save_tickets(tickets)
         

@@ -7,13 +7,11 @@ from view.ticketopen import TicketOpenView
 from utility import save_tickets, get_tickets
 
 class Tickets(commands.Cog):
-    
     def __init__(self, bot):
         self.bot = bot
     
     @app_commands.command(name="ticket", description="Open a Ticket")
     async def ticket_command(self, interaction: discord.Interaction):
-        
         modal = TicketModal("Open a Ticket")
         await interaction.response.send_modal(modal)
     

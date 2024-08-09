@@ -2,6 +2,8 @@ import discord
 from discord import ui
 from modal.ticket import TicketModal
 
+# Class to add the Open Ticket Button
+
 class TicketOpenView(ui.View):
     def __init__(self):
         super().__init__(timeout=None)

@@ -13,11 +13,12 @@ class TicketModal(ui.Modal):
             label="Reason",
             style=discord.TextStyle.short,
             required=True,
-            placeholder="...",
+            placeholder="Reason for opening the Ticket",
         )
 
         self.add_item(self.reason)
 
+    # This is called when you click on Submit in the modal
     async def on_submit(self, interaction: discord.Interaction):
         
         category = interaction.guild.get_channel(CATEGORY_ID)
@@ -35,11 +36,12 @@ class TicketModal(ui.Modal):
             description=f"**Reason:** {self.reason.value}"
             )
         
+        # Save the channel to tickets.json
         tickets = get_tickets()
         tickets[channel.id] = {}
         tickets[channel.id]["owner-id"] = user.id
         save_tickets(tickets)
-
+        
         await channel.send(f"{user.mention}", embed=embed, view=TicketControlsView())
         await interaction.response.send_message(f"{channel.mention} was created...", ephemeral=True)
         self.stop()
