@@ -72,7 +72,7 @@ class Manage(commands.Cog):
             title=f"About {member.name}{get_role_emoji(level)}",
             description=""
         )
-        embed.add_field(name=":key: Permissionlevel:", value=f"{get_role_name(level)}{get_role_emoji(level)}")
+        embed.add_field(name="Permissionlevel:", value=f"{get_role_name(level)}{get_role_emoji(level)}")
         
         await interaction.response.send_message(embed=embed)
     
