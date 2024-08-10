@@ -8,7 +8,7 @@ bot = commands.Bot(command_prefix="-", intents=discord.Intents.all())
  
 @bot.event
 async def on_ready():
-    print("Bot gestartet!")
+    print("Bot gestartet!") # You can Change the Message
 
     await load()
     
