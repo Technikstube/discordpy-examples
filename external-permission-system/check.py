@@ -7,11 +7,21 @@ def get_role_name(n: int):
     if n == 3:
         return "Owner"
     elif n == 2:
-        return "Administrator"
+        return "Admin"
     elif n == 1:
-        return "Moderator"
+        return "Mod"
     else:
         return "User"
+    
+def get_role_emoji(n: int):
+    if n == 3:
+        return ":crown:"
+    elif n == 2:
+        return ":wrench:"
+    elif n == 1:
+        return ":rotating_light:"
+    else:
+        return ""
 
 def is_owner():
     def predicate(interaction: discord.Interaction) -> bool:

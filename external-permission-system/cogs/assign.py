@@ -4,7 +4,7 @@ from discord.ext import commands
 from discord import app_commands
 from constants import Roles
 from utility import Config
-from check import get_role_name, is_mod
+from check import get_role_name, get_role_emoji, is_mod
 
 options: list = [
     app_commands.Choice(name="Owner (autom. assigned)", value=Roles.Owner),
@@ -42,7 +42,11 @@ class Manage(commands.Cog):
         
         if target_level >= executor_level:
             await interaction.response.send_message(f"Your rank (`{get_role_name(executor_level)}`) is below `{get_role_name(target_level)}`, therefore you can't assign any rank to {member.mention}.", ephemeral=True)
-            return 
+            return
+        
+        if target_level == role.value:
+            await interaction.response.send_message(f"{member.mention} is already assigned to `{get_role_name(role.value)}`.", ephemeral=True)
+            return
 
         conf[str(interaction.guild.id)]["assigned_roles"][str(member.id)] = role.value
         self.conf.save(conf)
@@ -65,9 +69,10 @@ class Manage(commands.Cog):
             level = conf[str(interaction.guild.id)]["assigned_roles"][str(member.id)]
         
         embed = discord.Embed(
-            title=f"About {member.name}",
-            description=f"Rank: {get_role_name(level)} ({level})"
+            title=f"About {member.name}{get_role_emoji(level)}",
+            description=""
         )
+        embed.add_field(name=":key: Permissionlevel:", value=f"{get_role_name(level)}{get_role_emoji(level)}")
         
         await interaction.response.send_message(embed=embed)
     
