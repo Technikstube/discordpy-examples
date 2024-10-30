@@ -1,5 +1,7 @@
 # discordpy-examples
 
+<img src="https://img.shields.io/github/license/Technikstube/discordpy-examples?style=for-the-badge" />
+
 Verschiedene Funktionsbeispiele für discord.py Bots
 
 ## Zum Repository beitragen
