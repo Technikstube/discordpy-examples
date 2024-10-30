@@ -2,23 +2,23 @@
 
 <img src="https://img.shields.io/github/license/Technikstube/discordpy-examples?style=for-the-badge" />
 
-Verschiedene Funktionsbeispiele für discord.py Bots
+Different function examples for the discord.py library
 
-## Zum Repository beitragen
+## Add examples to this repo
 
-1. Repository forken
+1. Fork the Repo
 
-2. Funktionsbeispiel einfügen
+2. Add your example
 
-    - Das Beispiel muss in einem eigenen Ordner sein
-    - Es sollte gut auskommentiert sein
-    - Ordner muss ein README.md enthalten
+    - The example must be in its own folder
+    - It should be commented
+    - It should contain a README.md
 
-3. Ein PR mit deinen Änderungen eröffnen
+3. Open a Pull-Request with your changes
 
 ## Links
 
-[Discord.py Dokumentation](https://discordpy.readthedocs.io/)\
+[Discord.py Documentation](https://discordpy.readthedocs.io/)\
 [Discord.py Quickstart](https://discordpy.readthedocs.io/en/stable/quickstart.html)
 
 [Technikstube](https://discord.com/invite/eR23G266BS)
