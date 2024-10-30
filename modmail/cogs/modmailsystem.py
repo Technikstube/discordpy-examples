@@ -69,7 +69,7 @@ class ModmailSystem(commands.Cog):
         tickets_data = load_tickets()
         if str(ctx.channel.id) in tickets_data["ticket_channels"]:
 
-            embed = discord.Embed(description=f"❌ The ticket has been closed and will be deleted in 10 seconds!", color=0x245400) # You can edit "❌ The ticket has been closed and will be deleted in 10 seconds!" to your Message, and the Color to your favorite Color
+            embed = discord.Embed(description="❌ The ticket has been closed and will be deleted in 10 seconds!", color=0x245400) # You can edit "❌ The ticket has been closed and will be deleted in 10 seconds!" to your Message, and the Color to your favorite Color
             await ctx.send(embed=embed)
 
             # Collect als Messages in the Ticket
